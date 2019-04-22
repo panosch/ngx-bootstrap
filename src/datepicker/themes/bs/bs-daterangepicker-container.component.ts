@@ -9,6 +9,7 @@ import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
 import { PositioningService } from 'ngx-bootstrap/positioning';
 
 import { Subscription } from 'rxjs';
+import { datepickerAnimation } from '../../datepicker-animations';
 
 
 @Component({
@@ -20,7 +21,8 @@ import { Subscription } from 'rxjs';
     style: 'position: absolute; display: block;',
     role: 'dialog',
     'aria-label': 'calendar'
-  }
+  },
+  animations: [datepickerAnimation]
 })
 export class BsDaterangepickerContainerComponent extends BsDatepickerAbstractComponent
   implements OnInit, OnDestroy {

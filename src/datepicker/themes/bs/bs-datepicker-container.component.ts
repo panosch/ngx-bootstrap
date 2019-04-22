@@ -9,7 +9,7 @@ import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
 import { PositioningService } from 'ngx-bootstrap/positioning';
 
 import { Subscription } from 'rxjs';
-import { fadeOutAnimation } from '../../datepicker-animations';
+import { datepickerAnimation } from '../../datepicker-animations';
 
 @Component({
   selector: 'bs-datepicker-container',
@@ -21,14 +21,17 @@ import { fadeOutAnimation } from '../../datepicker-animations';
     role: 'dialog',
     'aria-label': 'calendar'
   },
-  animations: [fadeOutAnimation]
+  animations: [datepickerAnimation]
 })
 export class BsDatepickerContainerComponent extends BsDatepickerAbstractComponent
   implements OnInit, OnDestroy {
+
   set value(value: Date) {
     this._effects.setValue(value);
   }
+
   valueChange: EventEmitter<Date> = new EventEmitter<Date>();
+  toggle = false;
 
   _subs: Subscription[] = [];
   constructor(
@@ -50,6 +53,10 @@ export class BsDatepickerContainerComponent extends BsDatepickerAbstractComponen
         }
       }
     });
+
+    setTimeout(() => {
+      this.toggle = true;
+    }, 1000);
 
     this.isOtherMonthsActive = this._config.selectFromOtherMonth;
     this.containerClass = this._config.containerClass;

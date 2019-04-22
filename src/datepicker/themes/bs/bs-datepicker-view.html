@@ -1,5 +1,5 @@
 <!-- days calendar view mode -->
-<div class="bs-datepicker" [ngClass]="containerClass" *ngIf="viewMode | async">
+<div class="bs-datepicker" [@datepickerAnimation]="toggle" [ngClass]="containerClass" *ngIf="viewMode | async">
   <div class="bs-datepicker-container">
 
     <!--calendars-->
@@ -8,7 +8,6 @@
       <div *ngSwitchCase="'day'" class="bs-media-container">
         <bs-days-calendar-view
           *ngFor="let calendar of (daysCalendar | async)"
-          [@fadeOutAnimation]="true"
           [class.bs-datepicker-multiple]="(daysCalendar | async)?.length > 1"
           [calendar]="calendar"
           [options]="options | async"

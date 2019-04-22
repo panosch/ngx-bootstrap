@@ -20,10 +20,10 @@ export const collapseAnimation: AnimationMetadata[] = [
   animate(DATEPICKER_ANIMATION_TIMING, style({ height: 0, visibility: 'hidden' }))
 ];
 
-export const fadeOutAnimation: AnimationTriggerMetadata =
-  trigger('fadeOutAnimation', [
-    state('true' , style({ opacity: 0 })),
-    state('false' , style({ opacity: 0.5 })),
-    transition('false => true', animate('1s')),
-    transition('true => false', animate('0s'))
+export const datepickerAnimation: AnimationTriggerMetadata =
+  trigger('datepickerAnimation', [
+    state('false, void', style({height: '0px', visibility: 'hidden'})),
+    state('true', style({height: '*', visibility: 'visible'})),
+    transition('true <=> false, void => false',
+      animate(DATEPICKER_ANIMATION_TIMING))
   ]);
