@@ -8,6 +8,7 @@
       <div *ngSwitchCase="'day'" class="bs-media-container">
         <bs-days-calendar-view
           *ngFor="let calendar of (daysCalendar | async)"
+          [@fadeOutAnimation]="true"
           [class.bs-datepicker-multiple]="(daysCalendar | async)?.length > 1"
           [calendar]="calendar"
           [options]="options | async"

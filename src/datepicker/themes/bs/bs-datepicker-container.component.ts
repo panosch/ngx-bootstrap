@@ -9,6 +9,7 @@ import { BsDatepickerStore } from '../../reducer/bs-datepicker.store';
 import { PositioningService } from 'ngx-bootstrap/positioning';
 
 import { Subscription } from 'rxjs';
+import { fadeOutAnimation } from '../../datepicker-animations';
 
 @Component({
   selector: 'bs-datepicker-container',
@@ -19,7 +20,8 @@ import { Subscription } from 'rxjs';
     style: 'position: absolute; display: block;',
     role: 'dialog',
     'aria-label': 'calendar'
-  }
+  },
+  animations: [fadeOutAnimation]
 })
 export class BsDatepickerContainerComponent extends BsDatepickerAbstractComponent
   implements OnInit, OnDestroy {

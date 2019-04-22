@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 import { ngdoc } from '../ng-api-doc';
@@ -23,6 +23,7 @@ import { ThemeStorage } from './theme/theme-storage';
   declarations: [AppComponent, DocumentationComponent, TopMenuComponent, LandingComponent],
   imports: [
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     DocsModule,
     FormsModule,
     HttpClientModule,
